@@ -1,0 +1,4 @@
+pywebview
+EbookLib
+beautifulsoup4
+lxml
