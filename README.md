@@ -1,6 +1,8 @@
 # bukworm
 A highly customisable ebook reader.
 
+***IMPORTANT NOTE: THE PROJECT IS CURRENTLY UNDER DEVELOPMENT AND IS NOT READY FOR USE.***
+
 ## Dependencies
 The list of dependencies are in `requirements.txt` file.
 
@@ -11,4 +13,4 @@ The list of dependencies are in `requirements.txt` file.
 - Allow users to customise font, colour, size, etc.
 
 ## License
-TODO
+_Choosing..._
