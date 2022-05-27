@@ -1,4 +1,6 @@
-pywebview
+--pre pythonnet
+lxml
+pywebview[qt]
 EbookLib
 beautifulsoup4
-lxml
+marko
