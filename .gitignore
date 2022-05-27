@@ -1,1 +1,4 @@
 **.epub
+**.tmp
+**.temp
+**__pycache__
