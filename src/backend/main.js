@@ -11,21 +11,19 @@ window.addEventListener('pywebviewready', function() {
         file_path.then(function(value) {
             // If user close the file dialog with no file selected, the return value is 'null'
             if (value != null) {
-                // Get the file path, read the file content
+                
                 var book_content = pywebview.api.get_content(value[0]); // The API return a promise object
                 console.log(book_content);
                 var read_zone = document.getElementsByClassName('read-zone');
                 var loading = document.getElementsByClassName('loading');
 
-                // Show 'loading' notification
-                loading[0].style.display = "block";
+                loading[0].style.display = "block"; // Show loading notification
 
                 // If the promise object is fulfilled, it'll return the value to the function
                 book_content.then(function(value) {
-                    // Clear possible content in read-zone
+                    
                     read_zone[0].innerHTML = ''
 
-                    // Append new content to read-zone
                     if (Array.isArray(value)) {
                         for (var i = 0; i < value.length; i++) {
                             read_zone[0].innerHTML += value[i];
@@ -34,8 +32,7 @@ window.addEventListener('pywebviewready', function() {
                         read_zone[0].innerHTML += value;
                     }
 
-                    // Hid 'loading' notification
-                    loading[0].style.display = "none";
+                    loading[0].style.display = "none"; // Hide 'loading' notification
                 });
             }
         });

@@ -1,12 +1,11 @@
-import base64
 import os
 
 import ebooklib
 from ebooklib import epub
 from bs4 import BeautifulSoup
 
-def img_to_base64(img):
-    return base64.b64encode(img).decode('ascii')
+from lib import utils
+
 
 def read(file):
     book = epub.read_epub(file)
@@ -45,9 +44,9 @@ def prep_content(docs, resources):
         # Replace all <img> src with base64 version of the image
         for img in page_content.find_all('img'):
             img_name = os.path.basename(img['src'])
-            img['src'] =  "data:image/jpeg;base64," + img_to_base64(resources[img_name])
+            img['src'] =  "data:image/jpeg;base64," + utils.img_to_base64(resources[img_name])
         
-        page_content = '<div class="page" id="page-' + str(count) + '"><div class="page-content">' + str(page_content.body) + '</div></div>'
+        page_content = '<div class="page" style="width: 210mm" id="page-{}"><div class="page-content" style="padding: 1.5cm">{}</div></div>'.format(str(count), str(page_content.body))
         page_content = page_content.replace("<body>", "").replace("</body>", "")
         prepped_content.append(page_content)
 

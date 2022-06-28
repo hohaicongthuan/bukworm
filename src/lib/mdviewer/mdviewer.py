@@ -9,7 +9,7 @@ def read(file_path):
     return parsed_text
 
 def prep_content(str_content):
-    page_content = '<div class="page"><div class="page-content">' + str(str_content) + '</div></div>'
+    page_content = '<div class="page" style="width: 210mm"><div class="page-content" style="padding: 1.5cm">{}</div></div>'.format(str(str_content))
     return page_content
 
 # if __name__ == "__main__":
