@@ -2,14 +2,13 @@ import os
 
 import webview
 
-from lib.epubviewer import epubviewer
-from lib.mdviewer import mdviewer
-from lib.msdocviewer import msdocviewer
-from lib.pdfviewer import pdfviewer
+from epubviewer import epubviewer
+from mdviewer import mdviewer
+from msdocviewer import msdocviewer
+from pdfviewer import pdfviewer
 
 
 def get_content(file_path):
-    # Read EPUB file, prepare content and send to JS to display
 
     file_name, file_ext = os.path.splitext(file_path)
 
@@ -46,7 +45,7 @@ def main_func(window):
 
 if __name__ == "__main__":
 
-    window = webview.create_window("BUKWORM", "frontend/index.html")
+    window = webview.create_window("BUKWORM", "gui/index.html")
     window.expose(get_content, open_file, exit)
     webview.start(main_func, window, debug=True)
 

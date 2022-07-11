@@ -1,6 +1,6 @@
 import fitz
 
-from lib import utils
+import utils
 
 def read(file_path):
     file = fitz.open(file_path)

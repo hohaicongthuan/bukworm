@@ -4,7 +4,7 @@ import ebooklib
 from ebooklib import epub
 from bs4 import BeautifulSoup
 
-from lib import utils
+import utils
 
 
 def read(file):
@@ -46,7 +46,7 @@ def prep_content(docs, resources):
             img_name = os.path.basename(img['src'])
             img['src'] =  "data:image/jpeg;base64," + utils.img_to_base64(resources[img_name])
         
-        page_content = '<div class="page" style="width: 210mm" id="page-{}"><div class="page-content" style="padding: 1.5cm">{}</div></div>'.format(str(count), str(page_content.body))
+        page_content = '<div class="page" style="width: 210mm" id="page-{}"><div class="page-content" style="padding: 1.5cm">{}</div></div>'.format(count, page_content.body)
         page_content = page_content.replace("<body>", "").replace("</body>", "")
         prepped_content.append(page_content)
 
