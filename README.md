@@ -26,11 +26,15 @@ Bukworm requires `Python 3`, `PIP` and `virtualenv` installed
 
 On Linux-based operating systems, `virtualenv` can be installed using:
 
-`pip3 install virtualenv`
+```
+pip3 install virtualenv
+```
 
 On Windows, `virtualenv` can be installed using:
 
-`pip install virtualenv`
+```
+pip install virtualenv
+```
 
 ## How to run?
 
@@ -44,15 +48,21 @@ Simply run the `run.py` script.
 
 Open a terminal app and run:
 
-`python3 run.py`
+```
+python3 run.py
+```
 
 OR set the executable permission for the script (you need to do this only ONCE) using:
 
-`chmod +x run.py`
+```
+chmod +x run.py
+```
 
 AND then use:
 
-`./run.py`
+```
+./run.py
+```
 
 to run
 
@@ -60,7 +70,9 @@ to run
 
 Open the Command-line window and run:
 
-`python run.py`
+```
+python run.py
+```
 
 ## How to build?
 
@@ -68,21 +80,29 @@ Make sure you have installed all the required software in Rerequisite before pro
 
 > _Note that on the first time the script runs, it will try to create a virtual environment (if not exist) and install all dependencies so make sure you have **internet connection available**_
 
+> _Note: Bukworm is currently use `pyinstaller` to build which the final file size is quite HUGE (100+ MB). I'm trying different ways to bring the build size down and the build tool will sure be changed in the future._
+
 Then run the `build.py` script. The built result will be stored at the `dist` directory.
 
 ### On Linux (and probably on MacOS??*)
 
 Open a terminal app and run:
 
-`python3 build.py`
+```
+python3 build.py
+```
 
 OR set the executable permission for the script (you need to do this only ONCE) using:
 
-`chmod +x build.py`
+```
+chmod +x build.py
+```
 
 AND then use:
 
-`./build.py`
+```
+./build.py
+```
 
 to build
 
@@ -90,9 +110,11 @@ to build
 
 Open the Command-line window and run:
 
-`python run.py`
+```
+python build.py
+```
 
 ## License
 _Choosing..._
 
-> \* I have never, in my life, used MacOS so I have no idea if it worked but I think it should because Python is cross-platform.
+> \* I have never used MacOS so I have no idea if it worked but I think it should because Python is cross-platform.
