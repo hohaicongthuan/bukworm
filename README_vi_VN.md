@@ -27,11 +27,15 @@ Yêu cầu máy tính cài sẵn `Python 3`, `PIP` và `virtualenv` để dùng 
 
 Ở những hệ điều hành nhân Linux thì `virtualenv` có thể cài bằng lệnh:
 
-`pip3 install virtualenv`
+```
+pip3 install virtualenv
+```
 
 Bên Windows thì `virtualenv` có thể được cài bằng lệnh:
 
-`pip install virtualenv`
+```
+pip install virtualenv
+```
 
 ## Làm thế nào để chạy?
 
@@ -45,15 +49,21 @@ Chỉ cần chạy file `run.py`.
 
 Mở app terminal và chạy:
 
-`python3 run.py`
+```
+python3 run.py
+```
 
 HOẶC cấp quyền thực thi cho script (bạn chỉ cần cấp quyền đúng MỘT LẦN duy nhất) bằng lệnh:
 
-`chmod +x run.py`
+```
+chmod +x run.py
+```
 
 VÀ sau đó dùng:
 
-`./run.py`
+```
+./run.py
+```
 
 để chạy
 
@@ -61,7 +71,9 @@ VÀ sau đó dùng:
 
 Mở Command-line và chạy:
 
-`python run.py`
+```
+python run.py
+```
 
 
 ## Làm thế nào để build?
@@ -70,21 +82,29 @@ Hãy chắc chắn rằng bạn đã cài tất cả những phần mềm yêu c
 
 > _Lưu ý là lần đầu tiên script chạy thì nó sẽ kiểm tra xem có môi trường ảo nào tạo ra chưa, nếu chưa thì nó sẽ tạo một môi trường ảo và tự cài các phần mềm yêu cầu trong file `requirements.txt` nên lần đầu chạy hãy chắc chắn rằng bạn có sẵn **kết nối internet**_
 
+> _Lưu ý: hiện tại Bukworm dùng `pyinstaller` để build ra file nhị phân nhưng file build bằng `pyinstaller` thường khá lớn (100+ MB). Mình đang thử các công cụ build khác nhau để giảm kích thước file xuống nên phần build trong tương lai chắc chắn sẽ thay đổi._
+
 Sau đó chạy file `build.py`. Kết quả build sẽ được lưu ở thư mục `dist`.
 
 ### Bên Linux (và có lẽ là bên MacOS luôn??*)
 
 Mở app terminal và chạy:
 
-`python3 build.py`
+```
+python3 build.py
+```
 
 HOẶC cấp quyền thực thi cho script (bạn chỉ cần cấp quyền đúng MỘT LẦN duy nhất) bằng lệnh:
 
-`chmod +x build.py`
+```
+chmod +x build.py
+```
 
 VÀ sau đó dùng:
 
-`./build.py`
+```
+./build.py
+```
 
 để build
 
@@ -92,9 +112,11 @@ VÀ sau đó dùng:
 
 Mở Command-line và chạy:
 
-`python run.py`
+```
+python build.py
+```
 
 ## Giấy phép
 _Đang xem xét..._
 
-> \* Cả đời mình chưa bao giờ dùng MacOS nên không biết là phần mềm này có chạy được trên đấy không, nhưng mà mình nghĩ chắc là được vì Python hỗ trợ nhiều nền tảng mà (cross-platform).
+> \* Mình chưa bao giờ dùng MacOS nên không biết là phần mềm này có chạy được trên đấy không, nhưng mà mình nghĩ chắc là được vì Python hỗ trợ nhiều nền tảng mà (cross-platform).
