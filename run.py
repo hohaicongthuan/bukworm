@@ -1,4 +1,5 @@
 #! /usr/bin/env python3
+# Automation script for lazy people
 
 """
 Check, initialise virtual environment (if not exist) and install dependencies in requirements.txt
