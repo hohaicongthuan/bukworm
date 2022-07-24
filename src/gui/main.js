@@ -1,46 +1,62 @@
-window.addEventListener("pywebviewready", function() {
-    
+window.addEventListener("pywebviewready", function()
+{
     console.log("pywebview is ready!");
 
-    var tools = document.getElementsByClassName("tool-item");
+    // Return true if provided element is visible on the viewport
+    function isVisible(el)
+    {
+        let rect = el.getBoundingClientRect();
+        let viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+        let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        return (
+            rect.top >= -2000 && rect.top <= viewportHeight + 2000
+        );
+    }
+
+    let read_zone = document.getElementsByClassName("read-zone")[0];
+    read_zone.addEventListener("scroll", function()
+    {
+        let pages = document.getElementsByClassName("page");
+        for (let i = 0; i < pages.length; i++)
+        {
+            if (pages[i].getAttribute("data-booktype") == "pdf") {
+                if (isVisible(pages[i]) && pages[i].innerHTML == "")
+                {
+                    let page_img = pywebview.api.load_page(pages[i].getAttribute("data-filepath"), pages[i].getAttribute("id"));
+                    page_img.then(function(value)
+                    {
+                        pages[i].innerHTML = value;
+                    });
+                }
+                // else
+                // {
+                //     pages[i].innerHTML = "";
+                // }
+            } 
+        }
+    });
+
+    let tools = document.getElementsByClassName("tool-item");
     
     // tools[0] is the Open File button
-    tools[0].addEventListener("click", function() {
-        var file_path = pywebview.api.open_file();
-        // console.log("File path is ", file_path);
-        file_path.then(function(value) {
-            // If user close the file dialog with no file selected, the return value is "null"
-            if (value != null) {
-                
-                var book_content = pywebview.api.get_content(value[0]); // The API return a promise object
-                console.log(book_content);
-                var read_zone = document.getElementsByClassName("read-zone");
-                var loading = document.getElementsByClassName("loading");
-
-                loading[0].style.display = "block"; // Show loading notification
-
-                // If the promise object is fulfilled, it"ll return the value to the function
-                book_content.then(function(value) {
-                    
-                    read_zone[0].innerHTML = ""
-
-                    if (Array.isArray(value)) {
-                        for (var i = 0; i < value.length; i++) {
-                            read_zone[0].innerHTML += value[i];
-                        }
-                    } else {
-                        read_zone[0].innerHTML += value;
-                    }
-
-                    loading[0].style.display = "none"; // Hide "loading" notification
-                });
-            }
-        });
-        
+    tools[0].addEventListener("click", function()
+    {
+        pywebview.api.open_file();
+        // var open_file = pywebview.api.open_file();
+        // var loading = document.getElementsByClassName("loading");
+        // loading[0].style.display = "block"; // Show loading notification
+        // open_file.then(function(value)
+        // {
+        //     if (value != 0) {
+        //         alert("Cannot open file.");
+        //     }
+        //     loading[0].style.display = "none"; // Hide "loading" notification
+        // });
     });
 
     // tools[2] is the Exit button
-    tools[2].addEventListener("click", function() {
+    tools[2].addEventListener("click", function()
+    {
         pywebview.api.exit();
     });
 

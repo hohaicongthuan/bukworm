@@ -83,29 +83,21 @@ button {
 }
 
 .page {
-    /* width: 210mm; */
-    height: auto;
-    box-shadow: 0 0 20px #000;
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    box-shadow: 0 0 15px #000;
+    margin: 15px auto;
     background-color: #fff;
 }
 
 .page-content {
     /* padding: 1.5cm; */
     font-family: "Noto Sans", "Tahoma", "Geneva", "Verdana", sans-serif;
-    font-size: 16px;
+    font-size: 1em;
     word-wrap: break-word;
 }
 
 img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: auto;
-    height: auto;
-    max-width: 150mm;
+    margin: auto;
 }
 
 pre {

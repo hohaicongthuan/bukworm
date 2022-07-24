@@ -1,3 +1,4 @@
+from colorsys import yiq_to_rgb
 import os
 
 import ebooklib
@@ -34,22 +35,29 @@ def read(file):
 
 def prep_content(docs, resources):
     # Reformat the content to display on the frontend
-
-    prepped_content = []
-
-    count = 0
-    for i in docs:
-        page_content = BeautifulSoup(i, 'html.parser')
-
+    for count, i in enumerate(docs):
+        page_content = BeautifulSoup(i, "html.parser")
         # Replace all <img> src with base64 version of the image
-        for img in page_content.find_all('img'):
-            img_name = os.path.basename(img['src'])
-            img['src'] =  "data:image/jpeg;base64," + utils.img_to_base64(resources[img_name])
-        
-        page_content = '<div class="page" style="width: 210mm" id="page-{}"><div class="page-content" style="padding: 1.5cm">{}</div></div>'.format(count, page_content.body)
-        page_content = page_content.replace("<body>", "").replace("</body>", "")
-        prepped_content.append(page_content)
-
-        count += 1
-    
-    return prepped_content
+        for img in page_content.find_all("img"):
+            img_name = os.path.basename(img["src"])
+            img['src'] =  f"data:image/jpeg;base64,{utils.img_to_base64(resources[img_name])}"
+        html_content = str(page_content.body).replace("<body>", "").replace("</body>", "")
+        html_content = html_content.replace('"', "'")
+        html_content = html_content.splitlines()
+        html_content = " ".join(html_content)
+        # JavaScript does not support multiline strings so the strings
+        # are written like this for readability
+        html_content = (
+            f"<div class='page' data-booktype='epub' style='width: 210mm' id='{count}'>"
+                "<div class='page-content' style='padding: 1.5cm'>"
+                    f"{html_content}"
+                "</div>"
+            "</div>"
+        )
+        js_code = (
+            'let read_zone = document.getElementsByClassName("read-zone")[0];'
+            # The string in 'html_content' already used single quote so the JS
+            # code should use double quote
+            f'read_zone.innerHTML += "{html_content}";'
+        )
+        yield js_code
