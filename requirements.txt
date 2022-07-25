@@ -4,6 +4,5 @@ pywebview
 EbookLib
 beautifulsoup4
 marko
-pymupdf
 PyGObject
 pyinstaller
