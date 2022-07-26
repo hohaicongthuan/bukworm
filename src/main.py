@@ -23,18 +23,25 @@ def open_file(file_path=""):
     file_ext.lower()
 
     if (file_ext == ".epub"):
-        meta_inf, docs, rsrc = epubviewer.read(file_path)
-        book_content = epubviewer.prep_content(docs, rsrc)
+        book_content = epubviewer.read(file_path)
+        toc = epubviewer.prep_toc(file_path)
     elif (file_ext == ".md"):
         book_content = mdviewer.read(file_path)
-        book_content = mdviewer.prep_content(book_content)
+        toc = mdviewer.prep_toc(file_path)
     else:
         book_content = ""
+        toc = ""
+
+    toc_js_code = f"""
+        let toc = document.getElementsByClassName('tab-content')[0];
+        toc.innerHTML = "{toc}";
+    """
+    window.evaluate_js(" ".join(toc_js_code.splitlines()))
+    # print(toc_js_code)
 
     clean_read_zone()
     for i in book_content:
         window.evaluate_js(i)
-        # print(i)
         
     return 0
 
