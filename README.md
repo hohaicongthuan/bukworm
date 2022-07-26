@@ -20,7 +20,7 @@ The list of dependencies are in `requirements.txt` file.
 
 TODO
 
-## Rerequisites
+## Prerequisites
 
 Bukworm requires `Python 3`, `PIP` and `virtualenv` installed
 
@@ -38,7 +38,7 @@ pip install virtualenv
 
 ## How to run?
 
-Make sure you have installed all the required software in Rerequisite before proceed.
+Make sure you have installed all the required software in **Prerequisite** before proceed.
 
 Simply run the `run.py` script.
 
