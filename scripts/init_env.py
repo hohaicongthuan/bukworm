@@ -14,9 +14,9 @@ def py_exe(path=False):
             return "python3"
     elif (platform.system() == "Windows"):
         if path:
-            return "python"
-        else:
             return "bukworm_virtualenv\\Scripts\\python.exe"
+        else:
+            return "python"
 
 def pip_exe(path=False):
     if (platform.system() == "Linux"):
@@ -31,13 +31,17 @@ def pip_exe(path=False):
             return "pip"
 
 def init_env():
+    with open("requirements.txt", "r", encoding="utf-8") as f:
+        pkg_list = f.read().splitlines()
+
     if (platform.system() == "Linux"):
         if not os.path.exists("bukworm_virtualenv"):
             subprocess.run([py_exe(), "-m", "virtualenv", "bukworm_virtualenv"])
-            subprocess.run([pip_exe(1), "install", "-r", "requirements.txt"])
+            for pkg in pkg_list:
+                subprocess.run(" ".join([pip_exe(1), "install", pkg]))
 
     elif (platform.system() == "Windows"):
         if not os.path.exists("bukworm_virtualenv"):
             subprocess.run([py_exe(), "-m", "virtualenv", "bukworm_virtualenv"])
-            subprocess.run([pip_exe(1), "install", "-r", "requirements.txt"])
-    
+            for pkg in pkg_list:
+                subprocess.run(" ".join([pip_exe(1), "install", pkg]))

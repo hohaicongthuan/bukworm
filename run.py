@@ -21,5 +21,3 @@ if __name__ == "__main__":
 
     elif (platform.system() == "Windows"):
         subprocess.run([init_env.py_exe(1), "src\\main.py"])
-    
-    
