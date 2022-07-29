@@ -1,1 +1,9 @@
-**.epub
+test
+**.tmp
+**.temp
+**__pycache__
+build
+dist
+.vscode
+main.spec
+**.bak
