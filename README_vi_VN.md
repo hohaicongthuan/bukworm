@@ -6,10 +6,6 @@ Phần mềm đọc sách điện tử cho phép tùy chỉnh giao diện.
 
 ***LƯU Ý: PHẦM MỀM NÀY ĐANG ĐƯỢC PHÁT TRIỂN VÀ CHƯA SẴN SÀNG ĐỂ SỬ DỤNG.***
 
-## Phần mềm yêu cầu
-
-Danh sách các phần mềm yêu cầu để chạy bukworm được liệt kê trong file `requirements.txt`.
-
 ## Các tính năng trong tương lai
 - Hỗ trợ xem định dạng PDF
 - Hỗ trợ xem các định dạng tài liệu của Microsoft Office (DOCX, PPTX, XLSX)
@@ -23,15 +19,21 @@ TODO
 
 ## Yêu cầu trước khi dùng phần mềm
 
-Yêu cầu máy tính cài sẵn `Python 3`, `PIP` và `virtualenv` để dùng bukworm
+Yêu cầu máy tính cài sẵn `Python 3.7` hoặc mới hơn, `PIP` và `virtualenv` để dùng bukworm
 
-Ở những hệ điều hành nhân Linux thì `virtualenv` có thể cài bằng lệnh:
+### Ở các hệ điều hành nhân Linux
+
+`virtualenv` có thể cài bằng lệnh:
 
 ```
 pip3 install virtualenv
 ```
 
-Bên Windows thì `virtualenv` có thể được cài bằng lệnh:
+### Bên Windows
+
+Bên Windows thì cần cài thêm _Microsoft Edge WebView 2 Runtime_. Nếu bạn dùng Windows 10, thì khả năng cao là nó đã được cài sẵn rồi. Nếu bạn dùng Windows 7, tải file cài ở [đây](https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section) (nên chọn _Evergreen Standalone Installer_). Kiểm tra xem _Microsoft Edge WebView 2 Runtime_ đã được cài chưa bằng cách mở `Control Panel > Programs and Features` và tìm trong danh sách.
+
+`virtualenv` có thể được cài bằng lệnh:
 
 ```
 pip install virtualenv
@@ -39,7 +41,7 @@ pip install virtualenv
 
 ## Làm thế nào để chạy?
 
-Hãy chắc chắn rằng bạn đã cài tất cả những phần mềm yêu cầu ở mục "Yêu cầu trước khi dùng phần mềm" trước khi tiếp tục.
+Hãy chắc chắn rằng bạn đã cài tất cả những phần mềm yêu cầu ở mục **"Yêu cầu trước khi dùng phần mềm"** trước khi tiếp tục.
 
 Chỉ cần chạy file `run.py`.
 
@@ -78,7 +80,7 @@ python run.py
 
 ## Làm thế nào để build?
 
-Hãy chắc chắn rằng bạn đã cài tất cả những phần mềm yêu cầu ở mục "Yêu cầu trước khi dùng phần mềm" trước khi tiếp tục.
+Hãy chắc chắn rằng bạn đã cài tất cả những phần mềm yêu cầu ở mục **"Yêu cầu trước khi dùng phần mềm"** trước khi tiếp tục.
 
 > _Lưu ý là lần đầu tiên script chạy thì nó sẽ kiểm tra xem có môi trường ảo nào tạo ra chưa, nếu chưa thì nó sẽ tạo một môi trường ảo và tự cài các phần mềm yêu cầu trong file `requirements.txt` nên lần đầu chạy hãy chắc chắn rằng bạn có sẵn **kết nối internet**_
 
