@@ -6,9 +6,6 @@ A highly customisable ebook reader.
 
 ***IMPORTANT NOTE: THE PROJECT IS CURRENTLY UNDER DEVELOPMENT AND IS NOT READY FOR USE.***
 
-## Dependencies
-The list of dependencies are in `requirements.txt` file.
-
 ## Future features plan
 - Support viewing PDF files
 - Support viewing Microsoft Document files (DOCX, PPTX, XLSX)
@@ -22,15 +19,21 @@ TODO
 
 ## Prerequisites
 
-Bukworm requires `Python 3`, `PIP` and `virtualenv` installed
+Bukworm requires `Python 3.7` or later, `PIP`, and `virtualenv` installed.
 
-On Linux-based operating systems, `virtualenv` can be installed using:
+### On Linux-based operating systems
+
+`virtualenv` can be installed using:
 
 ```
 pip3 install virtualenv
 ```
 
-On Windows, `virtualenv` can be installed using:
+### On Windows
+
+_Microsoft Edge WebView 2 Runtime_ is also required. If you're using Windows 10, it's probably already installed on your system. If you're using Windows 7, you can download it [here](https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section) (_Evergreen Standalone Installer_ is recommended). You can check whether it's installed by open `Control Panel > Programs and Features` and find it in the list.
+
+`virtualenv` can be installed using:
 
 ```
 pip install virtualenv
@@ -38,7 +41,7 @@ pip install virtualenv
 
 ## How to run?
 
-Make sure you have installed all the required software in **Prerequisite** before proceed.
+Make sure you have installed all the required software in **Prerequisites** before proceed.
 
 Simply run the `run.py` script.
 
@@ -76,7 +79,7 @@ python run.py
 
 ## How to build?
 
-Make sure you have installed all the required software in Rerequisite before proceed.
+Make sure you have installed all the required software in **Prerequisites** before proceed.
 
 > _Note that on the first time the script runs, it will try to create a virtual environment (if not exist) and install all dependencies so make sure you have **internet connection available**_
 
